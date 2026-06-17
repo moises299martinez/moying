@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Graduación · Ing. Moisés Martínez Vázquez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background: #0b0d10;
+      font-family: 'Inter', 'Space Grotesk', sans-serif;
+      background-image: radial-gradient(circle at 20% 30%, #1a1f2a 0%, #0b0d10 90%);
+    }
+
+    .landing-wrapper {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .landing-card {
+      max-width: 1200px;
+      width: 100%;
+      background: rgba(18, 22, 30, 0.78);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border-radius: 3rem;
+      border: 1px solid rgba(0, 255, 255, 0.12);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 255, 255, 0.05) inset;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 0;
+    }
+
+    /* ----- SIDE IMAGE ----- */
+    .image-side {
+      background: #0f131a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.2rem 1.5rem;
+      position: relative;
+      min-height: 420px;
+      border-right: 1px solid rgba(0, 255, 255, 0.08);
+      background-image: radial-gradient(circle at 70% 20%, #1d2a36 0%, #0b0f14 100%);
+    }
+
+    .image-frame {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 255, 255, 0.2);
+      border: 2px solid rgba(0, 255, 255, 0.15);
+    }
+
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      filter: brightness(0.95) contrast(1.05);
+      background: #1b212b;
+    }
+
+    .image-side::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-top: 2px solid rgba(0, 255, 255, 0.15);
+      border-left: 2px solid rgba(0, 255, 255, 0.15);
+      border-radius: 4px 0 0 0;
+      pointer-events: none;
+    }
+
+    .image-side::after {
+      content: "◈";
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      font-size: 1.8rem;
+      color: rgba(0, 255, 255, 0.12);
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    /* ----- CONTENT SIDE ----- */
+    .content-side {
+      padding: 3rem 2.8rem 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: transparent;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 255, 255, 0.06);
+      color: #8bf0f0;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      width: fit-content;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.02);
+    }
+
+    .badge i {
+      font-size: 0.8rem;
+      color: #4cdada;
+      animation: softPulse 3s infinite ease-in-out;
+    }
+
+    .title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 3.2rem;
+      line-height: 1.05;
+      color: #f0f5fa;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .title .highlight {
+      background: linear-gradient(135deg, #b2f0f0, #6ad4d4, #3bb3b3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .name-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: #e0eef7;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.5px;
+      border-left: 3px solid #2cd4d4;
+      padding-left: 1rem;
+      background: linear-gradient(90deg, rgba(0,255,255,0.04), transparent);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .name-title i {
+      color: #4cdada;
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #a3b8cc;
+      margin-bottom: 2.2rem;
+      border-left: 3px solid #2cd4d4;
+      padding-left: 1.2rem;
+      letter-spacing: 0.2px;
+      background: linear-gradient(90deg, rgba(0,255,255,0.03), transparent);
+      border-radius: 0 4px 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .subhead i {
+      color: #3ed4d4;
+      font-size: 0.9rem;
+      margin-right: 4px;
+    }
+
+    .subhead .invite-text {
+      font-weight: 300;
+      color: #c6d9ec;
+    }
+
+    /* details grid */
+    .details-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 1.5rem 0.8rem 1.2rem;
+      border-radius: 80px;
+      border: 1px solid rgba(0, 255, 255, 0.06);
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .detail-item:hover {
+      border-color: rgba(0, 255, 255, 0.25);
+      background: rgba(0, 255, 255, 0.03);
+      transform: translateX(4px);
+    }
+
+    .detail-item i {
+      width: 2rem;
+      font-size: 1.25rem;
+      color: #46d6d6;
+      text-align: center;
+      filter: drop-shadow(0 0 6px rgba(0,255,255,0.15));
+    }
+
+    .detail-item .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .detail-item .label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7e97ae;
+      font-weight: 600;
+    }
+
+    .detail-item .value {
+      font-weight: 600;
+      color: #eaf0f7;
+      font-size: 1rem;
+      letter-spacing: 0.2px;
+    }
+
+    .detail-item .value a {
+      color: #8dd8d8;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(0, 255, 255, 0.2);
+      transition: all 0.2s;
+    }
+
+    .detail-item .value a:hover {
+      color: #b6f0f0;
+      border-bottom-color: #2cd4d4;
+    }
+
+    .highlight-date {
+      background: rgba(0, 255, 255, 0.04);
+      border-color: rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.02);
+    }
+
+    .highlight-date .value {
+      color: #b6f0f0;
+      font-weight: 600;
+    }
+
+    .highlight-date i {
+      color: #5ee0e0;
+    }
+
+    /* ----- MAPA EMBEBIDO ----- */
+    .map-container {
+      margin-top: 0.2rem;
+      margin-bottom: 0.5rem;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 255, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+      background: #0f131a;
+      width: 100%;
+    }
+
+    .map-container:hover {
+      border-color: rgba(0, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 255, 255, 0.05);
+    }
+
+    .map-container iframe {
+      display: block;
+      width: 100%;
+      height: 200px;
+      border: none;
+      filter: grayscale(0.2) contrast(1.05);
+    }
+
+    /* ----- BEBIDAS SECTION ----- */
+    .bebidas-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.8rem 1.5rem;
+      background: rgba(0, 255, 255, 0.02);
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      border: 1px solid rgba(0, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      width: 100%;
+      margin-top: 0.2rem;
+    }
+
+    .bebidas-section i {
+      color: #5ad4d4;
+      font-size: 1.3rem;
+      filter: drop-shadow(0 0 6px rgba(0,255,255,0.1));
+    }
+
+    .bebidas-text {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #c6d9ec;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bebidas-text strong {
+      color: #e0f0f0;
+      font-weight: 600;
+      background: rgba(0, 255, 255, 0.04);
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      border: 1px solid rgba(0, 255, 255, 0.08);
+    }
+
+    .bebidas-text .emoji {
+      font-style: normal;
+      font-size: 1.1rem;
+    }
+
+    /* footer */
+    .footer-note {
+      margin-top: 1.8rem;
+      font-size: 0.8rem;
+      color: #6b879e;
+      border-top: 1px solid rgba(0, 255, 255, 0.06);
+      padding-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.3px;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .footer-note i {
+      color: #55baba;
+      margin-right: 6px;
+    }
+
+    .footer-note .tech-tag {
+      background: rgba(0, 255, 255, 0.03);
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      border: 1px solid rgba(0, 255, 255, 0.05);
+      font-size: 0.7rem;
+      color: #80b8c9;
+    }
+
+    /* ============================================ */
+    /* RESPONSIVE */
+    /* ============================================ */
+    @media (max-width: 850px) {
+      .landing-wrapper {
+        padding: 0.8rem;
+      }
+
+      .landing-card {
+        border-radius: 2rem;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+
+      .image-side {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.06);
+        padding: 2rem 1.5rem;
+        min-height: 240px;
+      }
+
+      .image-frame {
+        max-width: 180px;
+      }
+
+      .content-side {
+        padding: 2rem 1.5rem 2.2rem;
+        width: 100%;
+      }
+
+      .title {
+        font-size: 2.6rem;
+      }
+
+      .name-title {
+        font-size: 1.3rem;
+        padding-left: 0.8rem;
+      }
+
+      .map-container iframe {
+        height: 180px;
+      }
+
+      .bebidas-section {
+        padding: 0.7rem 1.2rem;
+        border-radius: 40px;
+        justify-content: center;
+      }
+
+      .bebidas-text {
+        font-size: 0.95rem;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-note {
+        flex-direction: column;
+        gap: 0.6rem;
+        text-align: center;
+      }
+
+      .image-side::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .landing-wrapper {
+        padding: 0.5rem;
+      }
+
+      .landing-card {
+        border-radius: 1.5rem;
+      }
+
+      .title {
+        font-size: 2.2rem;
+      }
+
+      .name-title {
+        font-size: 1.1rem;
+        padding-left: 0.6rem;
+        border-left-width: 2px;
+      }
+
+      .detail-item {
+        padding: 0.6rem 1rem;
+        border-radius: 40px;
+        gap: 0.8rem;
+      }
+
+      .detail-item i {
+        width: 1.6rem;
+        font-size: 1rem;
+      }
+
+      .badge {
+        font-size: 0.6rem;
+        padding: 0.3rem 1rem;
+      }
+
+      .image-frame {
+        max-width: 130px;
+      }
+
+      .subhead {
+        font-size: 0.85rem;
+        padding-left: 0.8rem;
+      }
+
+      .map-container iframe {
+        height: 150px;
+      }
+
+      .bebidas-section {
+        padding: 0.6rem 1rem;
+        border-radius: 30px;
+      }
+
+      .bebidas-text {
+        font-size: 0.85rem;
+      }
+
+      .bebidas-text strong {
+        font-size: 0.85rem;
+        padding: 0.05rem 0.6rem;
+      }
+
+      .footer-note {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .title {
+        font-size: 1.8rem;
+      }
+      .name-title {
+        font-size: 0.95rem;
+      }
+      .content-side {
+        padding: 1.5rem 1rem;
+      }
+      .bebidas-text {
+        font-size: 0.75rem;
+      }
+      .map-container iframe {
+        height: 120px;
+      }
+    }
+
+    @keyframes softPulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-wrapper">
+    <div class="landing-card">
+      <div class="grid-container">
+        <!-- IMAGE SIDE -->
+        <div class="image-side">
+          <div class="image-frame">
+            <img src="img/moy.jpg" alt="Ing. Moisés Martínez Vázquez">
+          </div>
+        </div>
+
+        <!-- CONTENT SIDE -->
+        <div class="content-side">
+          <!-- badge -->
+          <div class="badge">
+            <i class="fas fa-microchip"></i> 
+            <span>class of 2026 · TICS</span>
+            <i class="fas fa-code" style="margin-left: 8px; opacity: 0.7;"></i>
+          </div>
+
+          <!-- título -->
+          <h1 class="title">
+            <span class="highlight">Te invito</span><br>
+            al festejo de mi <br>
+            <span class="highlight">graduación</span>
+          </h1>
+
+          <!-- nombre -->
+          <div class="name-title">
+            <i class="fas fa-user-graduate"></i>
+            Ing. Moisés Martínez Vázquez
+          </div>
+
+          <!-- subtítulo -->
+          <div class="subhead">
+            <i class="fas fa-certificate"></i>
+            <span class="invite-text">· titulación en</span>
+            <strong style="color: #cae5f0; font-weight: 600;">Ingeniería en TICS</strong>
+            <span style="color: #628aa0; margin-left: 4px;">|</span>
+            <span style="color: #aac7db; font-weight: 300;">honores</span>
+          </div>
+
+          <!-- detalles -->
+          <div class="details-grid">
+            <div class="detail-item highlight-date">
+              <i class="fas fa-calendar-day"></i>
+              <div class="info">
+                <span class="label">Fecha y hora</span>
+                <span class="value"><i class="far fa-clock" style="margin-right: 8px;"></i> Sábado 20 de junio · 3:00 PM</span>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-graduation-cap"></i>
+              <div class="info">
+                <span class="label">Título</span>
+                <span class="value">Ingeniería en TICS</span>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-map-marked-alt"></i>
+              <div class="info">
+                <span class="label">Ubicación</span>
+                <span class="value">
+                  <i class="fas fa-location-dot" style="margin-right: 6px; color: #46d6d6;"></i>
+                  <a href="https://maps.app.goo.gl/YHQrxQPPsaKiUXbL8" target="_blank" rel="noopener noreferrer">
+                    Fuentezuelas, Tx. Qro.
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAPA EMBEBIDO -->
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3725.123456789!2d-99.97899!3d20.560643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDMzJzM4LjMiTiA5OcKwNTgnNDQuNCJX!5e0!3m2!1ses!2smx!4v1712345678901!5m2!1ses!2smx" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa de ubicación - Fuentezuelas, Querétaro">
+            </iframe>
+          </div>
+
+          <!-- mensaje de bebidas -->
+          <div class="bebidas-section">
+            <i class="fas fa-glass-cheers"></i>
+            <div class="bebidas-text">
+              <span>🍹 si gustas,</span>
+              <strong>trae tu bebida favorita</strong>
+              <span class="emoji">🥤🍷🍺</span>
+              <span style="color: #7e97ae; font-weight: 300; margin-left: 4px;">· comparte con estilo</span>
+            </div>
+          </div>
+
+          <!-- footer -->
+          <div class="footer-note">
+            <span><i class="fas fa-code"></i> networking · <i class="fas fa-music" style="margin-left: 12px;"></i> live set</span>
+            <span class="tech-tag"><i class="fas fa-robot" style="margin-right: 4px;"></i> #IngTICS · 2026</span>
+            <span><i class="far fa-calendar-alt"></i> 20·06·26</span>
+          </div>
+
+          <!-- línea decorativa -->
+          <div style="display: flex; gap: 6px; margin-top: 0.8rem; opacity: 0.12;">
+            <span style="width: 30px; height: 2px; background: #2cd4d4;"></span>
+            <span style="width: 60px; height: 2px; background: #2cd4d4;"></span>
+            <span style="width: 20px; height: 2px; background: #2cd4d4;"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
